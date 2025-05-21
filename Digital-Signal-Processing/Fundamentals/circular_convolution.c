@@ -1,6 +1,4 @@
-//
-// Created by Priyan on 17-10-2024.
-//
+
 #include <stdio.h>
 
 int main() {
@@ -16,10 +14,10 @@ int main() {
         int Xn[n], Hn[n], Yn[n];
 
 
-        for (int i = 0; i < n; i++) {
-            Hn[i] = 0;
-            Yn[i] = 0;
-        }
+            for (int i = 0; i < n; i++) {
+                Hn[i] = 0;
+                Yn[i] = 0;
+            }
 
 
         for (int i = 0; i < n; i++) {
@@ -28,15 +26,19 @@ int main() {
         }
 
 
-        for (int i = 0; i < h; i++) {
-            printf("Enter Hn[%d]: ", i);
-            scanf("%d", &Hn[i]);
-        }
+    for (int i = 0; i < h; i++) {
+
+        printf("Enter Hn[%d]: ", i);
+        
+        scanf("%d", &Hn[i]);
+    }
 
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                Yn[i] += Xn[(i - j + n) % n] * Hn[j];
+                
+                Yn[i] = Yn[i] + Xn[(i - j + n) % n] * Hn[j];
+                
             }
         }
 
@@ -45,7 +47,7 @@ int main() {
             printf("Yn[%d]: %d\n", i, Yn[i]);
         }
     }
-    else {
+    else {                      //when h > n
         int Xn[h], Hn[h], Yn[h];
 
 
@@ -57,6 +59,7 @@ int main() {
 
         for (int i = 0; i < n; i++) {
             printf("Enter Xn[%d]: ", i);
+            
             scanf("%d", &Xn[i]);
         }
 
@@ -69,7 +72,8 @@ int main() {
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < h; j++) {
-                Yn[i] += Xn[(i - j + h) % h] * Hn[j];
+                
+                Yn[i] = Yn[i] + Xn[(i - j + h) % h] * Hn[j];
             }
         }
 
