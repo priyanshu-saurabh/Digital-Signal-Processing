@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#define PI 3.14159265
+#define PI 3.14
 
 int main() {
     int N;
@@ -11,7 +11,7 @@ int main() {
     float Xr[N];
     float Xi[N];
 
-    // Taking input values
+    // Taking input values from the user
     for (int i = 0; i < N; i++) {
         printf("Enter the value of x[%d]: ", i);
         scanf("%f", &xn[i]);
@@ -21,10 +21,10 @@ int main() {
         Xr[k] = 0;
         Xi[k] = 0;
         for (int n = 0; n < N; n++) {
-            Xr[k] += xn[n] * cos((2 * PI * n * k) / N);
-            Xi[k] += xn[n] * sin((2 * PI * n * k) / N);
+            Xr[k] = Xr[k] + xn[n] * cos((2 * PI * n * k) / N);
+            Xi[k] = Xi[k] + xn[n] * sin((2 * PI * n * k) / N);
         }
-        printf("X[%d] = %f + %fj\n", k, Xr[k], Xi[k]);
+        printf("Output: X[%d] = %f + %fj \n", k, Xr[k], Xi[k]);
     }
 
     return 0;
